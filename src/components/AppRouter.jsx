@@ -12,7 +12,7 @@ const AppRouter = () => {
                     key={route.path}
                 />
             ))}
-            <Route path="*" element={<Navigate to="/" replace />} />
+            <Route path="*" element={<Navigate to="/error" replace />} />
         </Routes>
     );
 };

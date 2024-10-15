@@ -1,15 +1,13 @@
 import React from 'react';
-import NewsList from "../components/NewsList";
 
-const HomePage = () => {
-
+const Administration = () => {
     return (
         <div className="App">
             <div className="container">
-                <NewsList/>
+                Administration
             </div>
         </div>
     );
 };
 
-export default HomePage;
+export default Administration;
