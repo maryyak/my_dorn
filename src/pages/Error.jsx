@@ -1,15 +1,13 @@
 import React from 'react';
-import NewsList from "../components/NewsList";
 
-const HomePage = () => {
-
+const Error = () => {
     return (
         <div className="App">
             <div className="container">
-                <NewsList/>
+                Error
             </div>
         </div>
     );
 };
 
-export default HomePage;
+export default Error;
