@@ -106,3 +106,27 @@ a {
   height: 100%;
   object-fit: cover;
 }
+
+.error-content{
+  display: flex;
+  justify-content: space-between;
+}
+
+.error-content__text{
+  align-content: center;
+}
+
+.error-content__heading{
+  font-weight: 700;
+  font-size: 128px;
+  background: linear-gradient(360deg, #0a2745 0%, #1961ab 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.error-content__text{
+  font-weight: 700;
+  font-size: 32px;
+  color: #0a2745;
+}
