@@ -4,16 +4,22 @@ import ScrollRestoration from "./components/ScrollRestoration";
 import {BrowserRouter} from "react-router-dom";
 import AppRouter from "./components/AppRouter";
 import Navbar from "./components/Navbar/Navbar";
-import Administration from "./pages/Administration";
+import Footer from "./components/Footer/Footer";
+
+export const UserContext = React.createContext();
 
 function App() {
+    const [userType, setUserType] = React.useState('unauthorized');
+
     return (
-        <BrowserRouter>
-            <Navbar/>
-            <Administration/>
-            <ScrollRestoration/>
-            <AppRouter/>
-        </BrowserRouter>
+        <UserContext.Provider value={{ userType, setUserType }}>
+            <BrowserRouter>
+                <Navbar/>
+                <ScrollRestoration/>
+                <AppRouter/>
+                <Footer/>
+            </BrowserRouter>
+        </UserContext.Provider>
     );
 }
 
