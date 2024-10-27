@@ -1,0 +1,35 @@
+[
+    {
+        "id": 1,
+        "email": "resident@example.com",
+        "password": "1",
+        "firstName": "Иван",
+        "lastName": "Иванов",
+        "middleName": "Иванович",
+        "roomNumber": "101",
+        "telegram": "@ivanov",
+        "userType": "resident"
+    },
+    {
+        "id": 2,
+        "email": "dormHead@example.com",
+        "password": "2",
+        "firstName": "Петр",
+        "lastName": "Петров",
+        "middleName": "Петрович",
+        "roomNumber": "102",
+        "telegram": "@petrov",
+        "userType": "dormHead"
+    },
+    {
+        "id": 3,
+        "email": "commandant@example.com",
+        "password": "3",
+        "firstName": "Сергей",
+        "lastName": "Сергеев",
+        "middleName": "Сергеевич",
+        "roomNumber": "103",
+        "telegram": "@sergeev",
+        "userType": "commandant"
+    }
+]

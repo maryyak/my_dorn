@@ -1,27 +1,69 @@
-import React from 'react';
+import React, { useState, useContext, useEffect } from 'react';
+import { UserContext } from "../components/UserProvider";
 
 const Login = () => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
+    const { setUserData } = useContext(UserContext);
+
+    const [users, setUsers] = useState([]);
+
+    useEffect(() => {
+        fetch('/data/usersData.json')
+            .then(response => response.json())
+            .then(data => setUsers(data))
+            .catch(error => console.error("Error loading users data:", error));
+    }, []);
+
+    const handleLogin = (e) => {
+        e.preventDefault();
+
+        const user = users.find(u => u.email === email && u.password === password);
+
+        if (user) {
+            setUserData(user);
+        } else {
+            setError('Неверные данные для входа');
+        }
+    };
+
     return (
         <div className="App">
             <div className="auth-block">
                 <div className="auth-block__head">
                     <div className="auth-block__title">Авторизация</div>
                 </div>
-                <div className="auth-block__form col-container">
+                <form className="auth-block__form col-container" onSubmit={handleLogin}>
                     <div className="auth-block__field col-container">
                         <label htmlFor="login" className="auth-block__label">Почта или номер студенческого билета</label>
-                        <input id="login" type="email" placeholder="Укажите" className="auth-block__input"/>
+                        <input
+                            id="login"
+                            type="email"
+                            placeholder="Укажите"
+                            className="auth-block__input"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                        />
                     </div>
                     <div className="auth-block__field col-container">
                         <label htmlFor="password" className="auth-block__label">Пароль</label>
-                        <input id="password" type="password" placeholder="Укажите" className="auth-block__input"/>
+                        <input
+                            id="password"
+                            type="password"
+                            placeholder="Укажите"
+                            className="auth-block__input"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                        />
                     </div>
                     <div className="auth-block__submit-block col-container">
                         <div className="auth-block__forgot">Забыли пароль?</div>
-                        <input className="auth-block__submit" type="submit" value="Применить"/>
+                        <input className="auth-block__submit" type="submit" value="Применить" />
                     </div>
-                </div>
+                </form>
             </div>
+            {error && <div className="auth-block__error">{error}</div>}
         </div>
     );
 };
