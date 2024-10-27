@@ -1,16 +1,16 @@
-import React, { useContext } from 'react';
-import {UserContext} from "../../App";
+import React, {useContext} from 'react';
 import NavbarUnauthorized from "./NavbarUnauthorized";
 import NavbarAuthorized from "./NavbarAuthorized";
+import {UserContext} from "../UserProvider";
 
 const Navbar = () => {
-    const { userType } = useContext(UserContext);
+    const { userData } = useContext(UserContext);
 
-    if (userType === 'unauthorized') {
+    if (userData.userType === 'unauthorized') {
         return <NavbarUnauthorized/>;
     }
     else {
-        return <NavbarAuthorized userType={userType}/>
+        return <NavbarAuthorized userData={userData}/>
     }
 };
 

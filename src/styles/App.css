@@ -317,6 +317,10 @@ a {
   padding: 12px;
   border: 1px solid rgba(0, 0, 0, 0.23);
   border-radius: 4px;
+  font-weight: 500;
+  font-size: 20px;
+  letter-spacing: 0.01em;
+  color: rgba(0, 0, 0, 0.7);
 }
 
 .auth-block__input::placeholder{
@@ -355,6 +359,20 @@ a {
 
 .auth-block__submit-block{
   gap: 15px;
+}
+
+.auth-block__error{
+  font-family: var(--third-family);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 20px;
+  letter-spacing: 0.01em;
+  text-align: center;
+  color: #8b2323;
+  border-radius: 74px;
+  border: 3px solid #8b2323;
+  padding: 10px 30px;
+  margin-top: 20px;
 }
 
 .reg-block{
@@ -452,13 +470,14 @@ a {
   align-items: flex-end;
 }
 
-.footer_line{
+.footer__line{
   background: #aaaaaa;
   height: 1px;
   margin: 20px 0;
 }
 
-.footer_inf{
+.footer__inf
+{
   gap:360px;
 }
 

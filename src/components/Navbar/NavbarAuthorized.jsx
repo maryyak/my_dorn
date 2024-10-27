@@ -1,10 +1,9 @@
 import React from 'react';
 
-const NavbarAuthorized = (props) => {
-    const userType = props.userType;
+const NavbarAuthorized = ({userData}) => {
     return (
         <div>
-            {userType}
+            {userData.userType}
         </div>
     );
 };
