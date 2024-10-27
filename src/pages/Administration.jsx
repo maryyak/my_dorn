@@ -4,12 +4,12 @@ const Administration = () => {
     return (
         <div className="App">
             <div className="container">
-                <div className="administration-list">
-                    <div className="administration-item">
+                <div className="administration-list col-container" >
+                    <div className="administration-item row-container">
                         <div className="img-container administration-item__img">
                             <img src="/assets/images/administration-image.png" alt="admin-img"/>
                         </div>
-                        <div className="administration-item__content">
+                        <div className="administration-item__content col-container ">
                             <div className="administration-item__title">Пряничников Максим Алексеевич</div>
                             <div className="administration-item__subtitle">ЗАВЕДУЮЩИЙ ОБЩЕЖИТИЕМ</div>
                             <div className="administration-item__line"></div>
@@ -19,16 +19,18 @@ const Administration = () => {
                                 <a className="administration-item__href href-underline"
                                    href="mailto:pryanichnikov@mirea.ru">Email: pryanichnikov@mirea.ru</a>
                             </div>
-                            <div className="administration-item__btn">
+
+                            <div className="administration-item__btn ">
                                 <a className="administration-item__hrefBtn" href="#">Связаться</a>
                             </div>
+
                         </div>
                     </div>
-                    <div className="administration-item">
+                    <div className="administration-item row-container">
                         <div className="img-container administration-item__img">
-                            <img src="/assets/images/administration-image2.png" alt="admin-img"/>
+                        <img src="/assets/images/administration-image2.png" alt="admin-img"/>
                         </div>
-                        <div className="administration-item__content">
+                        <div className="administration-item__content col-container">
                             <div className="administration-item__title">Степанов Максим Андреевич</div>
                             <div className="administration-item__subtitle">КОМЕНДАНТ ОБЩЕЖИТИЯ</div>
                             <div className="administration-item__line"></div>
@@ -43,11 +45,11 @@ const Administration = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="administration-item">
+                    <div className="administration-item row-container">
                         <div className="img-container administration-item__img">
                             <img src="/assets/images/administration-image3.png" alt="admin-img"/>
                         </div>
-                        <div className="administration-item__content">
+                        <div className="administration-item__content col-container">
                             <div className="administration-item__title">Черняева Оксана Евгеньевна</div>
                             <div className="administration-item__subtitle">ПАСПОРТИСТ ОБЩЕЖИТИЯ</div>
                             <div className="administration-item__line"></div>
@@ -68,6 +70,5 @@ const Administration = () => {
         </div>
     );
 };
-
 
 export default Administration;
