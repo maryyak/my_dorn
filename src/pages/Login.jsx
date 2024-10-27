@@ -18,7 +18,7 @@ const Login = () => {
                     </div>
                     <div className="auth-block__submit-block col-container">
                         <div className="auth-block__forgot">Забыли пароль?</div>
-                        <input className="auth-block__submit" type="submit" placeholder="Применить"/>
+                        <input className="auth-block__submit" type="submit" value="Применить"/>
                     </div>
                 </div>
             </div>
