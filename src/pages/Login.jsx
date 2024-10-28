@@ -1,12 +1,13 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { UserContext } from "../components/UserProvider";
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const { setUserData } = useContext(UserContext);
-
+    const navigate = useNavigate();
     const [users, setUsers] = useState([]);
 
     useEffect(() => {
@@ -23,6 +24,7 @@ const Login = () => {
 
         if (user) {
             setUserData(user);
+            navigate('/');
         } else {
             setError('Неверные данные для входа');
         }

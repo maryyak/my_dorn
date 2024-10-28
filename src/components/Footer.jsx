@@ -1,6 +1,7 @@
 import React, {useContext} from 'react';
 import {Link} from "react-router-dom";
 import {UserContext} from "./UserProvider";
+import UserProfile from "./UI/UserProfile/UserProfile";
 
 const Footer = () => {
     const {userData} = useContext(UserContext);
@@ -12,22 +13,9 @@ const Footer = () => {
                     <Link to="/" className="logo">
                         <img src="/assets/images/logo.png" alt="logo"/>
                     </Link>
-                    <div className="user__col-container">
+                    <div className="user__col-container col-container">
                         {userData.userType !== 'unauthorized' &&
-                            <div className="user row-container">
-                                <div className="user__notifications">
-                                    <img src="/assets/images/notifications.png" alt="notifications"/>
-                                </div>
-                                <div className="user__info">
-                                    <div className="user__name">
-                                        {userData.firstName}
-                                        &nbsp;{userData.lastName}
-                                    </div>
-                                    <div className="user__email">
-
-                                    </div>
-                                </div>
-                            </div>
+                            <UserProfile/>
                         }
                         <div className="footer__links row-container">
                             <Link to="/rules" className="footer__link">Правила проживания</Link>
