@@ -254,6 +254,7 @@ a {
 .navbar__links{
   gap: 30px;
   align-items: center;
+
 }
 
 .navbar__link{
@@ -294,6 +295,10 @@ a {
   width: 100%;
   background: #fff;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.08);
+}
+
+.user__navbar{
+  gap:30px;
 }
 
 .auth-block__head{
@@ -462,6 +467,10 @@ a {
   line-height: 117%;
   letter-spacing: 0.01em;
   color: #fff;
+  align-self: center;
+}
+
+.user__notifications{
   align-self: center;
 }
 
