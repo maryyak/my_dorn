@@ -4,6 +4,7 @@ import Error from "../pages/Error";
 import LivingRules from "../pages/LivingRules";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import Events from "../pages/Events";
 
 export const routes = [
     {
@@ -25,6 +26,10 @@ export const routes = [
     {
         path: '/register',
         element: <Register/>,
+    },
+    {
+        path: '/events',
+        element: <Events/>,
     },
     {
         path: '/error',

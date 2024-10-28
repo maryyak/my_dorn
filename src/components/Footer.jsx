@@ -12,25 +12,27 @@ const Footer = () => {
                     <Link to="/" className="logo">
                         <img src="/assets/images/logo.png" alt="logo"/>
                     </Link>
-                    {userData.userType !== 'unauthorized' &&
-                        <div className="user">
-                            <div className="user__notifications">
-                                <img src="/assets/images/notifications.png" alt="notifications"/>
-                            </div>
-                            <div className="user__info">
-                                <div className="user__name">
-                                    {userData.firstName}
-                                    {userData.lastName}
+                    <div className="user__col-container">
+                        {userData.userType !== 'unauthorized' &&
+                            <div className="user row-container">
+                                <div className="user__notifications">
+                                    <img src="/assets/images/notifications.png" alt="notifications"/>
                                 </div>
-                                <div className="user__email">
+                                <div className="user__info">
+                                    <div className="user__name">
+                                        {userData.firstName}
+                                        &nbsp;{userData.lastName}
+                                    </div>
+                                    <div className="user__email">
 
+                                    </div>
                                 </div>
                             </div>
+                        }
+                        <div className="footer__links row-container">
+                            <Link to="/rules" className="footer__link">Правила проживания</Link>
+                            <Link to="/administration" className="footer__link">Состав администрации</Link>
                         </div>
-                    }
-                    <div className="footer__links row-container">
-                        <Link to="/rules" className="footer__link">Правила проживания</Link>
-                        <Link to="/administration" className="footer__link">Состав администрации</Link>
                     </div>
                 </div>
                 <div className="footer__line"></div>
