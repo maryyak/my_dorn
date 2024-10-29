@@ -30,6 +30,7 @@ body {
   overflow-x: hidden;
   flex: 1 0 auto;
   justify-content: center;
+  padding: 70px 0;
 }
 
 img {
@@ -239,7 +240,6 @@ a {
   background: #0a2745;
   justify-content: center;
   width: 100%;
-  margin-bottom: 70px;
 }
 
 .navbar__container{
@@ -386,7 +386,6 @@ a {
   margin-top: 20px;
 }
 .footer{
-  margin-top: 70px;
   background: #2B2B2B;
   justify-content: center;
   width: 100%;
@@ -541,8 +540,6 @@ a {
   gap: 13px;
 }
 
-
-
 .poll__container {
   display: flex;
   flex-direction: column;
@@ -638,3 +635,32 @@ a {
   padding: 13px 16px;
 }
 
+.subnavbar{
+  border-bottom: 1px solid #0a2745;
+  padding: 20px 0;
+  justify-content: center;
+  width: 100%;
+}
+
+.subnavbar__container{
+  gap: 30px;
+  padding-left: 190px;
+}
+
+.subnavbar__link{
+  font-family: var(--third-family);
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: -0.01em;
+  color: #0a2745;
+}
+
+.navbar-back{
+  justify-content: center;
+  width: 100%;
+  padding: 10px 0;
+}
+
+.navbar-back__container{
+  justify-content: flex-end;
+}

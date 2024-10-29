@@ -1,6 +1,7 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import { UserContext } from "../components/UserProvider";
 import { useNavigate } from 'react-router-dom';
+import useFetch from "../hooks/useFetch";
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -10,12 +11,7 @@ const Login = () => {
     const navigate = useNavigate();
     const [users, setUsers] = useState([]);
 
-    useEffect(() => {
-        fetch('/data/usersData.json')
-            .then(response => response.json())
-            .then(data => setUsers(data))
-            .catch(error => console.error("Error loading users data:", error));
-    }, []);
+    useFetch('/data/usersData.json', setUsers);
 
     const handleLogin = (e) => {
         e.preventDefault();
