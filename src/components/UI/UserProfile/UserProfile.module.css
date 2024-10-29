@@ -1,0 +1,37 @@
+.userNotifications img {
+    height: 28px;
+    width: auto;
+    align-self: center;
+}
+
+.userContainer {
+    align-content: flex-end;
+}
+
+.user {
+    gap: 30px;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.userInfo {
+    gap: 8px;
+    align-items: center;
+}
+
+.userName {
+    font-family: var(--third-family);
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 117%;
+    letter-spacing: 0.01em;
+    color: #fff;
+}
+
+.userPhoto {
+    display: block;
+    width: 28px;
+    height: 28px;
+    border-radius: 100%;
+    background: #fff;
+}
