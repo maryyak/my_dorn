@@ -1,17 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import EventsList from "../components/EventsList";
+import useFetch from "../hooks/useFetch";
 
 const Events = () => {
     const [eventsList, setEventsList] = useState([]);
     const [date, setDate] = useState('');
     const [time, setTime] = useState('');
 
-    useEffect(() => {
-        fetch('/data/eventsData.json')
-            .then(response => response.json())
-            .then(data => setEventsList(data))
-            .catch(error => console.error("Error loading events data:", error));
-    }, []);
+    useFetch('/data/eventsData.json', setEventsList);
 
     const handleAddOption = (event) => {
         event.preventDefault();
