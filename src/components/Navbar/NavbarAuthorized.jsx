@@ -23,15 +23,17 @@ const NavbarAuthorized = ({userData}) => {
                                 <img src="/assets/images/notifications.png" alt="notifications"/>
                             </div>
                             <div className="user__info">
-                                <div className="user__name">
-                                    {userData.firstName}
-                                    &nbsp;{userData.lastName}
-                                </div>
-                                <div className="user__email">
-                                </div>
+                                <Link to="/lk">
+                                    <div className="user__name">
+                                        {userData.firstName}
+                                        &nbsp;{userData.lastName}
+                                    </div>
+                                    <div className="user__email">
+                                    </div>
+                                </Link>
                             </div>
                         </div>
-                    </div>
+                </div>
             </div>
 
     );
