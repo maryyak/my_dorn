@@ -5,7 +5,6 @@ import LivingRules from "../pages/LivingRules";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import Events from "../pages/Events";
-import PersonalAccount from "../pages/PersonalAccount";
 
 export const routes = [
     {
@@ -35,9 +34,5 @@ export const routes = [
     {
         path: '/error',
         element: <Error/>,
-    },
-    {
-        path: '/lk',
-        element: <PersonalAccount/>,
     }
 ];

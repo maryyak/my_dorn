@@ -41,7 +41,8 @@ a {
 }
 
 .container {
-  padding: 30px;
+  padding-right: 30px;
+  padding-left: 30px;
   max-width: 1180px;
   width: 100%;
   position: relative;
@@ -238,6 +239,7 @@ a {
   background: #0a2745;
   justify-content: center;
   width: 100%;
+  margin-bottom: 70px;
 }
 
 .navbar__container{
@@ -387,6 +389,7 @@ a {
   margin-top: 20px;
 }
 .footer{
+  margin-top: 70px;
   background: #2B2B2B;
   justify-content: center;
   width: 100%;
@@ -663,199 +666,5 @@ a {
   margin: 8px;
   text-align: center;
   padding: 13px 16px;
-}
-
-
-.user__block{
-  width: fit-content;
-  padding: 23px;
-  gap:20px;
-  border-radius: 20px;
-  box-shadow: 7px 13px 13px 0 rgba(0, 0, 0, 0.25);
-  background: #fff;
-}
-
-.profile__photo{
-  width: 108px;
-  height: 108px;
-  border-radius: 100%;
-  border: 2px solid #ccc;
-}
-
-.user__fio{
-  font-weight: 500;
-  font-size: 23px;
-  color: #0a2745;
-}
-
-.user__infor{
-  gap: 10px;
-}
-
-.user__room{
-  font-weight: 500;
-  font-size: 16px;
-  letter-spacing: -0.01em;
-  color: #0a2745;
-}
-
-.notification-img{
-  height: 50px;
-}
-.notification-img img{
-  width: 100%;
-  height: 100%;
-}
-
-.notifications__checkbox{
-  font-weight: 500;
-  font-size: 16px;
-  letter-spacing: -0.01em;
-  color: #0a2745;
-}
-
-.notifications{
-  gap:33px;
-  align-items: center;
-}
-
-.personal_account{
-  gap:50px;
-
-}
-
-.checkbox{
-  color: #0A2745;
-}
-
-.support-block{
-  border-radius: 20px;
-  box-shadow: 7px 13px 13px 0 rgba(0, 0, 0, 0.25);
-  background: #fff;
-  padding: 30px 35px;
-  gap: 26px;
-}
-.support-img{
-  height: 45px;
-}
-.support-img img{
-  width: 100%;
-  height: 100%;
-}
-
-.support-header__text{
-  font-weight: 500;
-  font-size: 24px;
-  color: #0a2745;
-  align-self: center;
-}
-.support-header{
-  gap:6px;
-}
-.support-input{
-  border-radius: 17px;
-  background: rgba(174, 174, 174, 0.28);
-  height: 130px;
-
-}
-
-.support-input::placeholder{
-  font-weight: 500;
-  font-size: 20px;
-  color: #7e7a7a;
-  padding: 25px;
-}
-
-.personal_account__1{
-  gap: 30px;
-}
-.support-block__submit{
-  border-radius: 30px;
-  background: #23568b;
-  font-weight: 500;
-  font-size: 21px;
-  color: #fff;
-  padding: 13px 24px;
-}
-
-.support-block__btn{
-  align-self: center;
-}
-
-.support-input:focus {
-  font-weight: 500;
-  font-size: 20px;
-  color: #23568b;
-  padding: 25px;
-  outline: none;
-}
-.support-input:focus::placeholder {
-  color: transparent;
-}
-
-.edit-img{
-  height: 35px;
-}
-.edit-img img{
-  width: 100%;
-  height: 100%;
-}
-
-.edit_block__heading{
-  font-weight: 500;
-  font-size: 16px;
-  letter-spacing: -0.01em;
-  color: #0a2745;
-}
-
-.edit_block{
-  justify-content: flex-end;
-  gap: 16px;
-  align-items: center;
-}
-
-.edit_text{
-  font-weight: 500;
-  font-size: 23px;
-  color: #666;
-}
-
-.edit_tg__input{
-  font-weight: 500;
-  font-size: 22px;
-  color: #666;
-  border: 1px solid #0a2745;
-  border-radius: 45px;
-  padding-left: 25px;
-  padding-bottom: 15px;
-  padding-top: 15px;
-  background-color: #F3F3F4;
-}
-
-.edit_save__button{
-  border: 2px solid #0a2745;
-  border-radius: 23px;
-  background-color: #F3F3F4;
-  font-weight: 500;
-  font-size: 20px;
-  letter-spacing: -0.01em;
-  color: #0a2745;
-  padding: 10px 25px;
-}
-
-.personal_account__2{
-  gap: 30px;
-  justify-content: space-between;
-}
-.edit-main{
-  width: 100%;
-}
-.edit_inf{
-  padding-top:37px;
-  padding-bottom: 50px;
-  gap:10px;
-}
-.edit_tg{
-  justify-content: space-between;
 }
 
