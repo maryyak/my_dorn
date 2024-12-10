@@ -11,7 +11,7 @@ const UserProfile = () => {
             <Link to="/notifications" className={`${styles.userNotifications}`}>
                 <img src="/assets/images/notifications.png" alt="notifications"/>
             </Link>
-            <Link to="/profile" className={`${styles.userInfo} row-container`}>
+            <Link to="/account" className={`${styles.userInfo} row-container`}>
                 <div className={`${styles.userName}`}>
                     {userData.firstName}
                     &nbsp;{userData.lastName}

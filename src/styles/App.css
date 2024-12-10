@@ -30,7 +30,6 @@ body {
   overflow-x: hidden;
   flex: 1 0 auto;
   justify-content: center;
-  padding: 70px 0;
 }
 
 img {
@@ -235,11 +234,16 @@ a {
   font-size: 32px;
   color: #0a2745;
 }
-
+.navbar__auth{
+  background: #0a2745;
+  justify-content: center;
+  width: 100%;
+}
 .navbar{
   background: #0a2745;
   justify-content: center;
   width: 100%;
+  margin-bottom: 70px;
 }
 
 .navbar__container{
@@ -249,12 +253,12 @@ a {
 
 .navbar__nav{
   gap: 60px;
-  align-items: center;
 }
 
 .navbar__links{
   gap: 30px;
   align-items: center;
+
 }
 
 .navbar__link{
@@ -288,7 +292,6 @@ a {
 
 .navbar__col-container{
   align-content: center;
-  gap: 7px;
 }
 
 .auth-block{
@@ -298,6 +301,10 @@ a {
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.08);
 }
 
+.user__navbar{
+  gap:30px;
+}
+
 .auth-block__head{
   background: #0a2745;
   border-radius: 8px 8px 0 0;
@@ -305,6 +312,18 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.user__info__link{
+  color: #fff;
+}
+
+.user__name{
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 117%;
+  letter-spacing: 0.01em;
+  color: #fff;
 }
 
 .auth-block__title{
@@ -386,6 +405,7 @@ a {
   margin-top: 20px;
 }
 .footer{
+  margin-top: 70px;
   background: #2B2B2B;
   justify-content: center;
   width: 100%;
@@ -399,7 +419,7 @@ a {
 .footer__nav{
   gap: 60px;
   justify-content: space-between;
-  align-items: center;
+
 }
 
 .footer__link{
@@ -440,9 +460,34 @@ a {
   justify-self: center;
 }
 
+.user__notifications img{
+  height: 28px;
+  width: auto;
+  align-self: center;
+}
+
 .user__col-container{
   align-content: flex-end;
-  gap: 10px;
+}
+
+.user{
+  gap: 30px;
+  justify-content: flex-end;
+
+}
+
+.user__info{
+  font-family: var(--third-family);
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 117%;
+  letter-spacing: 0.01em;
+  color: #fff;
+  align-self: center;
+}
+
+.user__notifications{
+  align-self: center;
 }
 
 .events-createVote__img{
@@ -507,12 +552,14 @@ a {
   width: fit-content;
   height: 40px;
   background: #5f84ac;
+}
+
+.events-createVote__hrefBtn{
   font-weight: 700;
   font-size: 18px;
   letter-spacing: 0.01em;
   text-align: center;
   color: #fff;
-  border: 0;
 }
 
 .poll{
@@ -539,6 +586,8 @@ a {
   flex-wrap: wrap;
   gap: 13px;
 }
+
+
 
 .poll__container {
   display: flex;
@@ -663,4 +712,249 @@ a {
 
 .navbar-back__container{
   justify-content: flex-end;
+}
+
+.account-main {
+  display: grid;
+  grid-template-columns: 1.3fr 2fr;
+  gap: 50px;
+  align-items: start;
+  width: 100%;
+  padding-bottom: 20px;
+}
+
+.account-col, .support-block__main, .notifications, .edit {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  width: 100%;
+  height: 100%;
+  justify-content: space-around;
+}
+
+.user-block{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.user-block__inf {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 23px;
+  gap: 20px;
+  border-radius: 20px;
+  box-shadow: 7px 13px 13px 0 rgba(0, 0, 0, 0.25);
+  background: #fff;
+}
+
+.user-block__photo {
+  width: 108px;
+  height: 108px;
+  border-radius: 100%;
+  border: 2px solid #ccc;
+}
+
+.user-block__text {
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.user-block__fio{
+  font-weight: 500;
+  font-size: 23px;
+  color: #0a2745;
+}
+
+.user-block__room{
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: -0.01em;
+  color: #0a2745;
+}
+
+.support-block {
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 7px 13px 13px 0 rgba(0, 0, 0, 0.25);
+  background: #fff;
+  padding: 30px 35px;
+  gap: 26px;
+}
+
+.support-block__header{
+  gap: 6px;
+  align-items: center;
+}
+
+.support-block__img{
+  height: 45px;
+}
+.support-block__img img{
+  width: 100%;
+  height: 100%;
+}
+
+.support-block__text{
+  font-weight: 500;
+  font-size: 24px;
+  color: #0a2745;
+  align-self: center;
+}
+
+.support-block__input{
+  border-radius: 17px;
+  background: rgba(174, 174, 174, 0.28);
+  height: 130px;
+}
+.support-block__input::placeholder{
+  font-weight: 500;
+  font-size: 20px;
+  color: #7e7a7a;
+  padding: 25px;
+}
+
+.support-block__input:focus {
+  font-weight: 500;
+  font-size: 20px;
+  color: #23568b;
+  padding: 25px;
+  outline: none;
+}
+.support-block__input:focus::placeholder {
+  color: transparent;
+}
+
+.support-block__btn{
+  align-self: center;
+}
+
+.support-block__submit{
+  border-radius: 30px;
+  background: #23568b;
+  font-weight: 500;
+  font-size: 21px;
+  color: #fff;
+  padding: 13px 24px;
+}
+
+.notifications-block {
+  gap: 30px;
+  width: 100%;
+  align-items: center;
+}
+
+.notifications-block__checkbox {
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: -0.01em;
+  color: #0a2745;
+  gap: 17px;
+}
+
+.edit-block {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.edit-block__heading{
+  justify-content: flex-end;
+  gap: 16px;
+  align-items: center;
+}
+
+.edit-block__text{
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: -0.01em;
+  color: #0a2745;
+}
+
+.edit-block__inf {
+  display: grid;
+  grid-template-columns: 1.3fr 2fr;
+  padding-top: 37px;
+  padding-bottom: 50px;
+  width: 100%;
+}
+
+.edit-block__tg {
+  justify-content: space-around;
+  gap: 10px;
+}
+
+.edit-block__Text {
+  font-weight: 500;
+  font-size: 23px;
+  color: #666;
+}
+
+.edit-block__input {
+  font-weight: 500;
+  font-size: 22px;
+  color: #666;
+  border: 1px solid #0a2745;
+  border-radius: 45px;
+  padding-left: 25px;
+  padding-bottom: 15px;
+  padding-top: 15px;
+  background-color: #f3f3f4;
+  width: 100%;
+}
+
+.edit-block__save {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.edit-block__button {
+  border: 2px solid #0a2745;
+  border-radius: 23px;
+  background-color: #f3f3f4;
+  font-weight: 500;
+  font-size: 20px;
+  color: #0a2745;
+  padding: 10px 25px;
+}
+
+.rules{
+  border-bottom: 5px solid #0a2745;
+  border-radius: 10px;
+  width: 100%;
+  background-color: white;
+  padding: 30px;
+  gap: 15px;
+}
+
+.rules-title{
+  font-weight: 500;
+  font-size: 26px;
+  color: #0a2745;
+  align-self: center;
+}
+
+.rules-subtitle{
+  font-weight: 500;
+  font-size: 20px;
+  color: #0a2745;
+  align-self: center;
+}
+
+.rules-text{
+  font-weight: 400;
+  font-size: 18px;
+  color: #000000;
+}
+
+.rules-paragraph{
+  font-weight: 400;
+  font-size: 18px;
+  color: #000000;
+  margin-left: 15px;
 }

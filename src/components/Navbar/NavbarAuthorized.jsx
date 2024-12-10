@@ -6,7 +6,7 @@ import BackButton from "../UI/BackButton/BackButton";
 const NavbarAuthorized = ({userData}) => {
     return (
         <>
-            <div className="navbar row-container">
+            <div className="navbar__auth row-container">
                 <div className="container navbar__container row-container">
                     <div className="navbar__nav row-container">
                         <Link to="/" className="logo">
