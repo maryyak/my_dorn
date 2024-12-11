@@ -6,6 +6,9 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import Events from "../pages/Events";
 import PersonalAccount from "../pages/PersonalAccount";
+import Notifications from "../pages/Notifications";
+import DutySchedule from "../pages/DutySchedule";
+import Applications from "../pages/Applications";
 
 export const routes = [
     {
@@ -39,5 +42,17 @@ export const routes = [
     {
         path: '/account',
         element: <PersonalAccount/>,
+    },
+    {
+        path:"/notifications",
+        element: <Notifications/>,
+    },
+    {
+        path:"/dutySchedule",
+        element: <DutySchedule/>,
+    },
+    {
+        path:"/applications",
+        element: <Applications/>,
     }
 ];

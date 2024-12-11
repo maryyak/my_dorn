@@ -17,13 +17,26 @@ const BackButton = () => {
         previousPath.current = location.pathname;
     }, [location.pathname]);
 
+    const handleBackButtonClick = () => {
+        navigate(-1);
+    };
+
+    const handleTextClick = () => {
+        navigate(-1); // Тоже переходит на предыдущую страницу при клике на текст
+    };
+
     return (
-        <button onClick={() => navigate(-1)} className={styles.backButton}>
-            <span className="backButton__text">{previousTitle && `${previousTitle}`}</span>
-            <svg width="5" height="10" viewBox="0 0 5 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M0 10L5 5L-4.37114e-07 0L0 10Z" fill="#0A2745"/>
-            </svg>
-        </button>
+        <div className="backButtonContainer row-container">
+            <span className={styles.previousPageText} onClick={handleTextClick}>
+                Предыдущая страница
+            </span>
+            <button onClick={handleBackButtonClick} className={styles.backButton}>
+                <span className="backButton__text">{previousTitle && `${previousTitle}`}</span>
+                <svg width="5" height="10" viewBox="0 0 5 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 10L5 5L-4.37114e-07 0L0 10Z" fill="#0A2745"/>
+                </svg>
+            </button>
+        </div>
     );
 };
 

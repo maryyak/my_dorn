@@ -35,8 +35,8 @@ const NavbarAuthorized = ({userData}) => {
                 <div className="subnavbar__container container row-container">
                     {(userData.userType === 'resident' || userData.userType === 'dormHead') &&
                         <>
-                            <Link to="/duty-schedule" className="subnavbar__link">График дежурства</Link>
-                            <Link to="/submit-application" className="subnavbar__link">Подать заявление</Link>
+                            <Link to="/dutySchedule" className="subnavbar__link">График дежурства</Link>
+                            <Link to="/applications" className="subnavbar__link">Подать заявление</Link>
                             <Link to="/events" className="subnavbar__link">Мероприятия</Link>
                         </>
                     }

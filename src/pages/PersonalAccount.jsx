@@ -6,6 +6,7 @@ const PersonalAccount = () => {
     const { userData, setUserData } = useContext(UserContext);
     const [telegramNick, setTelegramNick] = useState(userData.telegram || '');
     const [email, setEmail] = useState(userData.email || '');
+    const [photo, setPhoto] = useState(userData.photo || "https://via.placeholder.com/80");
 
     const handleTelegramChange = (event) => setTelegramNick(event.target.value);
     const handleEmailChange = (event) => setEmail(event.target.value);
@@ -20,6 +21,14 @@ const PersonalAccount = () => {
             email: email.trim() || '',
         }));
     };
+    const handlePhotoUpload = (event) => {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = () => setPhoto(reader.result);
+            reader.readAsDataURL(file);
+        }
+    };
     return (
         <div className="App">
             <div className="container account-main">
@@ -27,9 +36,18 @@ const PersonalAccount = () => {
                     <div className="user-block">
                         <div className="user-block__inf row-container">
                             <img
-                                src="https://via.placeholder.com/80"
+                                src={photo}
                                 alt="User"
                                 className="user-block__photo"
+                                style={{cursor: 'pointer'}}
+                                onClick={() => document.getElementById('photoUpload').click()}
+                            />
+                            <input
+                                id="photoUpload"
+                                type="file"
+                                accept="image/*"
+                                style={{display: 'none'}}
+                                onChange={handlePhotoUpload}
                             />
                             <div className="user-block__text col-container">
                                 <div className="user-block__fio">
