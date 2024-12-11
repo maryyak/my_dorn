@@ -14,7 +14,7 @@ var DBConfig = struct {
 	Port:     getEnv("DB_PORT", "5432"),
 	User:     getEnv("DB_USER", "dev_user"),
 	Password: getEnv("DB_PASSWORD", "password"),
-	DBName:   getEnv("DB_NAME", "project_db"),
+	DBName:   getEnv("DB_NAME", "test_db"),
 }
 
 // Получение переменной окружения с дефолтным значением
