@@ -1,0 +1,464 @@
+@media (max-width: 941px) {
+
+    body {
+        font-size: 16px;
+    }
+
+    .container {
+        max-width: 100%;
+        align-content: center;
+    }
+
+    .news__row {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .news-item {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+
+    .news-item__content {
+        padding: 20px;
+    }
+
+    .news-item__title {
+        font-size: 18px;
+    }
+
+    .news-item__text {
+        font-size: 14px;
+    }
+    .navbar {
+        flex-direction: column;
+        margin-bottom: 20px;
+    }
+
+    .navbar__container {
+        padding: 10px;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+
+    .navbar__links {
+        gap: 15px;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .navbar__link {
+        font-size: 16px;
+    }
+    .navbar__btns {
+        gap: 10px;
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .navbar__btn {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    .navbar__heading {
+        font-size: 16px;
+    }
+
+    .navbar__col-container{
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .footer {
+        margin-top: 30px;
+    }
+
+    .footer__container {
+        padding: 10px;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .footer__nav, .navbar__nav {
+        flex-direction: row;
+        gap: 20px;
+    }
+
+    .footer__links {
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    .footer__inf {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .footer__confidentiality {
+        text-align: center;
+    }
+    .footer__ourteam {
+        justify-self: center;
+        text-align: center;
+    }
+    /* Адаптив для логотипа */
+    .footer .logo ,.navbar .logo{
+        display: flex;
+        justify-content: flex-start;
+        height: 74px;
+    }
+    .user__col-container{
+        justify-content: center;
+    }
+
+    .auth-block__title {
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .auth-block__form {
+        padding: 30px 15px;
+        gap: 20px;
+    }
+
+    .auth-block__input {
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    .auth-block__label {
+        font-size: 18px;
+    }
+
+    .auth-block__submit {
+        font-size: 18px;
+        padding: 10px;
+    }
+
+    .auth-block__forgot {
+        font-size: 16px;
+    }
+
+    .auth-block__error {
+        font-size: 16px;
+        padding: 8px 20px;
+    }
+    .administration-item__img {
+        align-items: center;
+        width: 220px;
+        margin-left: 0;
+    }
+
+    .administration-item__content {
+        gap: 15px;
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .administration-list {
+        gap: 30px;
+    }
+
+    .administration-item {
+        padding: 20px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .administration-item__title {
+        font-size: 28px;
+    }
+
+    .administration-item__subtitle,
+    .administration-item__href {
+        font-size: 20px;
+    }
+
+    .administration-item__btn {
+        padding: 10px 50px;
+        margin-top: 10px;
+    }
+
+    .administration-item__hrefBtn {
+        font-size: 20px;
+    }
+
+    .administration-item__line {
+        height: 3px;
+    }
+
+    .subnavbar__container {
+        padding-left: 20px;
+        gap: 20px;
+    }
+
+    .subnavbar__link {
+        font-size: 14px;
+    }
+
+    .application-main {
+        padding: 15px;
+    }
+
+    .application-heading {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .application-heading__title {
+        gap: 10px;
+    }
+
+    .application-heading__text {
+        font-size: 20px;
+    }
+
+    .application-block__text {
+        font-size: 16px;
+    }
+
+    .application-block__input {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .application-block__time {
+        flex-direction: column;
+        gap: 5px;
+    }
+    .application-heading__menu {
+        width: 100%;
+    }
+
+    .application-heading__select {
+        width: 100%;
+    }
+    .account-main {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .user-block__inf {
+        flex-direction: row;
+        align-items: flex-start;
+        padding: 15px;
+        gap: 15px;
+    }
+    .account-col{
+        gap:20px;
+    }
+    .user-block__photo {
+        width: 80px;
+        height: 80px;
+    }
+
+    .user-block__fio {
+        font-size: 18px;
+    }
+
+    .user-block__room {
+        font-size: 14px;
+    }
+
+    .support-block {
+        gap:12px;
+        padding: 20px;
+    }
+    .support-block__img{
+        height: 35px;
+    }
+    .support-block__text {
+        font-size: 20px;
+    }
+
+    .support-block__input {
+        height: 100px;
+        font-size: 16px;
+    }
+
+    .support-block__submit {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
+    .notifications-block__img{
+        width:35px;
+    }
+    .edit-block__img{
+        width:30px;
+    }
+    .notifications {
+        gap: 20px;
+    }
+
+    .notifications-block__checkbox {
+        font-size: 14px;
+    }
+
+    .edit-block__inf {
+        grid-template-columns: 1fr 1fr;
+        padding: 10px;
+    }
+
+    .edit-block__Text{
+        font-size: 20px;
+    }
+    .edit-block__tg {
+        gap: 15px;
+    }
+    .edit-block__input {
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    .edit-block__button {
+        font-size: 16px;
+        padding: 8px 20px;
+    }
+
+    .auth-block{
+        max-width: 720px;
+    }
+}
+@media (max-width: 426px) {
+
+    .navbar__links,.footer__links {
+        gap: 15px;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .navbar__link, .footer__link {
+        font-size: 12px;
+    }
+
+    .navbar__heading {
+        font-size: 16px;
+    }
+
+
+    .footer__nav, .navbar__nav {
+        flex-direction: row;
+        gap: 20px;
+    }
+
+
+    .footer__confidentiality {
+        font-size:10px;
+    }
+    .footer__ourteam {
+        font-size:10px;
+    }
+    /* Адаптив для логотипа */
+    .footer .logo ,.navbar .logo{
+        display: flex;
+        justify-content: flex-start;
+        height: 60px;
+    }
+    .footer__line{
+        margin:0px;
+    }
+
+    .administration-item__img {
+        width: 220px;
+        height: 300px;
+    }
+
+    .administration-item__content {
+        gap: 5px;
+    }
+
+    .administration-list {
+        gap: 20px;
+    }
+
+    .administration-item__title {
+        font-size: 20px;
+    }
+
+    .administration-item__subtitle,
+    .administration-item__href {
+        font-size: 15px;
+    }
+
+    .administration-item__btn {
+        padding: 8px 40px;
+        margin-top: 6px;
+    }
+
+    .auth-block__title {
+        font-size: 20px;
+    }
+
+    .auth-block__form {
+        padding: 20px 10px;
+        gap: 10px;
+    }
+
+    .auth-block__input {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .auth-block__label {
+        font-size: 16px;
+    }
+
+    .auth-block__submit {
+        font-size: 16px;
+        padding: 6px;
+    }
+
+    .auth-block__forgot {
+        font-size: 12px;
+    }
+
+    .auth-block__error {
+        font-size: 12px;
+        padding: 8px 15px;
+    }
+    .auth-block{
+        max-width: 400px;
+    }
+    .auth-block__input::placeholder{
+        font-size: 14px;
+    }
+
+    .backButtonContainer{
+        font-size:14px;
+    }
+    .subnavbar__container {
+        padding: 10px;
+        gap: 15px;
+    }
+
+    .subnavbar__link {
+        font-size: 14px;
+    }
+
+    .UserProfile_userNotifications__sWjno{
+        height: 25px;
+    }
+
+    .edit-block__Text{
+        font-size: 15px;
+    }
+
+    .error-content__heading{
+        font-size: 100px;
+    }
+
+    .error-content__text{
+        font-size: 20px;
+    }
+    .error-content {
+        padding-top: 40px;
+    }
+    .navbar__btn {
+        font-size: 10px;
+    }
+}
