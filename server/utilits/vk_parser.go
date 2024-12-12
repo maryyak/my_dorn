@@ -13,7 +13,7 @@ import (
 
 const (
 	apiURL      = "https://api.vk.com/method/wall.get"
-	domain      = "life.mirea"
+	domain      = "student.dom12.mirea"
 	count       = 16
 	accessToken = "58cdea9f58cdea9f58cdea9f2f5bede03c558cd58cdea9f3fce02c1b73869da3599a99d"
 	vers        = "5.199"
@@ -132,61 +132,61 @@ func unixToString(unixTime int64) string {
 }
 
 func VkParsing() {
-	for {
-		url := fmt.Sprintf("%s?owner_id=%s&access_token=%s&count=%d&v=%s", apiURL, domain, accessToken, count, vers)
-		fmt.Println(url)
-		response, err := fetchPosts(url)
-		if err != nil {
-			log.Println("Error fetching posts:", err)
-			time.Sleep(time.Minute)
-			continue
-		}
+	//for {
+	url := fmt.Sprintf("%s?owner_id=%s&access_token=%s&count=%d&v=%s", apiURL, domain, accessToken, count, vers)
+	fmt.Println(url)
+	response, err := fetchPosts(url)
+	if err != nil {
+		log.Println("Error fetching posts:", err)
+		//time.Sleep(time.Minute)
+		//continue
+	}
 
-		outputData := make([]OutputPost, 0)
-		for _, post := range response.Response.Items {
-			for _, attachment := range post.Attachments {
-				switch attachment.Type {
-				case "photo":
-					if attachment.Photo != nil {
-						for _, size := range attachment.Photo.Sizes {
-							if size.Type == "orig" || size.Type == "z" {
-								outputData = append(outputData, OutputPost{
-									URL:  size.URL,
-									Text: post.Text,
-									Date: unixToString(post.Date),
-									ID:   fmt.Sprintf("https://vk.com/life.mirea?w=wall-42869722_%d", post.ID),
-								})
-							}
+	outputData := make([]OutputPost, 0)
+	for _, post := range response.Response.Items {
+		for _, attachment := range post.Attachments {
+			switch attachment.Type {
+			case "photo":
+				if attachment.Photo != nil {
+					for _, size := range attachment.Photo.Sizes {
+						if size.Type == "orig" || size.Type == "z" {
+							outputData = append(outputData, OutputPost{
+								URL:  size.URL,
+								Text: post.Text,
+								Date: unixToString(post.Date),
+								ID:   fmt.Sprintf("https://vk.com/life.mirea?w=wall-42869722_%d", post.ID),
+							})
 						}
 					}
-				case "video":
-					if attachment.Video != nil {
-						var maxImageURL string
-						maxWeight := 0
-						for _, img := range attachment.Video.Images {
-							if img.Weight > maxWeight {
-								maxWeight = img.Weight
-								maxImageURL = img.URL
-							}
+				}
+			case "video":
+				if attachment.Video != nil {
+					var maxImageURL string
+					maxWeight := 0
+					for _, img := range attachment.Video.Images {
+						if img.Weight > maxWeight {
+							maxWeight = img.Weight
+							maxImageURL = img.URL
 						}
-						outputData = append(outputData, OutputPost{
-							URL:  maxImageURL,
-							Text: post.Text,
-							Date: unixToString(post.Date),
-							ID:   fmt.Sprintf("%d", post.ID),
-						})
 					}
+					outputData = append(outputData, OutputPost{
+						URL:  maxImageURL,
+						Text: post.Text,
+						Date: unixToString(post.Date),
+						ID:   fmt.Sprintf("%d", post.ID),
+					})
 				}
 			}
 		}
-
-		err = saveJSONToFile(outputData, "public/data", "newsData.json")
-		if err != nil {
-			log.Println("Error saving JSON:", err)
-		} else {
-			log.Println("JSON successfully saved to output_directory/output.json")
-		}
-
-		time.Sleep(3600 * time.Second)
 	}
+
+	err = saveJSONToFile(outputData, "public/data", "newsData.json")
+	if err != nil {
+		log.Println("Error saving JSON:", err)
+	} else {
+		log.Println("JSON successfully saved to public/data/newsData.json")
+	}
+
+	//	time.Sleep(3600 * time.Second)
+	//}
 }
