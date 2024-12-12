@@ -152,9 +152,9 @@ func VkParsing() {
 						if size.Type == "orig" || size.Type == "z" {
 							outputData = append(outputData, OutputPost{
 								URL:  size.URL,
-								Text: post.Text,
+								Text: post.Text[:301] + "...",
 								Date: unixToString(post.Date),
-								ID:   fmt.Sprintf("https://vk.com/life.mirea?w=wall-42869722_%d", post.ID),
+								ID:   fmt.Sprintf("https://vk.com/student.dom12.mirea?w=wall-168782205_%d", post.ID),
 							})
 						}
 					}
@@ -171,7 +171,7 @@ func VkParsing() {
 					}
 					outputData = append(outputData, OutputPost{
 						URL:  maxImageURL,
-						Text: post.Text,
+						Text: post.Text[:300] + "...",
 						Date: unixToString(post.Date),
 						ID:   fmt.Sprintf("%d", post.ID),
 					})
