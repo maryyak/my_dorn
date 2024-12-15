@@ -1,0 +1,39 @@
+[
+  {
+    "id": 1,
+    "date": "01.01.2001 11:11",
+    "type": "message",
+    "author": {
+      "name": "Name Surname",
+      "avatar": "https://via.placeholder.com/40"
+    },
+    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nisl elit ut gravida at amet orci. Faucibus malesuada...",
+    "action": {
+      "label": "Ответить",
+      "type": "button"
+    },
+    "read": false
+  },
+  {
+    "id": 2,
+    "date": "01.01.2001 11:11",
+    "type": "notification",
+    "title": "Заявление на проход гостя",
+    "status": "Ваше заявление было успешно одобрено",
+    "action": null,
+    "read": true
+  },
+  {
+    "id": 3,
+    "date": "01.01.2001 11:11",
+    "type": "notification",
+    "title": "Новое мероприятие предложено",
+    "status": null,
+    "action": {
+      "label": "Посмотреть",
+      "type": "link",
+      "url": "/events"
+    },
+    "read": false
+  }
+]

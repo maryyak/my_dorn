@@ -36,7 +36,7 @@ const DutySchedule = () => {
                             type="file"
                             id="photoUpload"
                             accept="image/*"
-                            style={{display: 'none'}} // Скрытый input
+                            style={{display: 'none'}}
                             onChange={handlePhotoUpload}
                         />
                     </>

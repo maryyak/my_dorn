@@ -1,9 +1,11 @@
 import React, { useState, useContext} from 'react';
 import { UserContext } from "../components/UserProvider";
 import SupportBlock from "../components/SupportBlock";
+import {useNavigate} from "react-router-dom";
 
 const PersonalAccount = () => {
     const { userData, setUserData } = useContext(UserContext);
+    const navigate = useNavigate();
     const [telegramNick, setTelegramNick] = useState(userData.telegram || '');
     const [email, setEmail] = useState(userData.email || '');
     const [photo, setPhoto] = useState(userData.photo || "https://via.placeholder.com/80");
@@ -21,6 +23,22 @@ const PersonalAccount = () => {
             email: email.trim() || '',
         }));
     };
+
+    const handleQuit = () => {
+        localStorage.removeItem('userData');
+        setUserData({
+            id: null,
+            firstName: '',
+            lastName: '',
+            middleName: '',
+            roomNumber: '',
+            telegram: '',
+            email: '',
+            userType: 'unauthorized',
+        });
+        navigate('/');
+    }
+
     const handlePhotoUpload = (event) => {
         const file = event.target.files[0];
         if (file) {
@@ -118,6 +136,9 @@ const PersonalAccount = () => {
                             <div className="edit-block__save row-container">
                                 <button className="edit-block__button" onClick={handleSave}>
                                     Сохранить изменения
+                                </button>
+                                <button className="edit-block__button" onClick={handleQuit}>
+                                    Выйти
                                 </button>
                             </div>
                         </div>

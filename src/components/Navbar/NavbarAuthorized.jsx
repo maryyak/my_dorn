@@ -36,7 +36,7 @@ const NavbarAuthorized = ({userData}) => {
                     {(userData.userType === 'resident' || userData.userType === 'dormHead') &&
                         <>
                             <Link to="/dutySchedule" className="subnavbar__link">График дежурства</Link>
-                            <Link to="/applications" className="subnavbar__link">Подать заявление</Link>
+                            <Link to="/submit-application" className="subnavbar__link">Подать заявление</Link>
                             <Link to="/events" className="subnavbar__link">Мероприятия</Link>
                         </>
                     }
@@ -45,7 +45,6 @@ const NavbarAuthorized = ({userData}) => {
                             <Link to="/communicate-residents" className="subnavbar__link">Связь с проживающими</Link>
                             <Link to="/applications" className="subnavbar__link">Заявления</Link>
                             <Link to="/events" className="subnavbar__link">Мероприятия</Link>
-                            <Link to="/decommission" className="subnavbar__link">Снятие с учета</Link>
                         </>
                     }
                 </div>

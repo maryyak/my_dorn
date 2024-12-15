@@ -9,6 +9,8 @@ import PersonalAccount from "../pages/PersonalAccount";
 import Notifications from "../pages/Notifications";
 import DutySchedule from "../pages/DutySchedule";
 import Applications from "../pages/Applications";
+import SubmitApplication from "../pages/SubmitApplication";
+import CommunicateResidents from "../pages/CommunicateResidents";
 
 export const routes = [
     {
@@ -54,5 +56,13 @@ export const routes = [
     {
         path:"/applications",
         element: <Applications/>,
+    },
+    {
+        path:"/submit-application",
+        element: <SubmitApplication/>,
+    },
+    {
+        path:"/communicate-residents",
+        element: <CommunicateResidents/>,
     }
 ];
