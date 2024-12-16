@@ -19,11 +19,6 @@ const Administration = () => {
                                 <a className="administration-item__href href-underline"
                                    href="mailto:pryanichnikov@mirea.ru">Email: pryanichnikov@mirea.ru</a>
                             </div>
-
-                            <div className="administration-item__btn ">
-                                <a className="administration-item__hrefBtn" href="#">Связаться</a>
-                            </div>
-
                         </div>
                     </div>
                     <div className="administration-item row-container">
@@ -40,9 +35,6 @@ const Administration = () => {
                                 <a className="administration-item__href href-underline"
                                    href="mailto:stepanov_ma@mirea.ru">Email: pstepanov_ma@mirea.ru</a>
                             </div>
-                            <div className="administration-item__btn">
-                                <a className="administration-item__hrefBtn" href="#">Связаться</a>
-                            </div>
                         </div>
                     </div>
                     <div className="administration-item row-container">
@@ -58,10 +50,6 @@ const Administration = () => {
                                     600-80-80, доб. 20752</a>
                                 <a className="administration-item__href href-underline"
                                    href="mailto:stepanov_ma@mirea.ru">Email: chernyaeva@mirea.ru</a>
-                            </div>
-
-                            <div className="administration-item__btn">
-                                <a className="administration-item__hrefBtn" href="#">Связаться</a>
                             </div>
                         </div>
                     </div>
