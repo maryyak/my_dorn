@@ -14,7 +14,7 @@ import (
 const (
 	apiURL      = "https://api.vk.com/method/wall.get"
 	domain      = "student.dom12.mirea"
-	count       = 16
+	count       = 15
 	accessToken = "58cdea9f58cdea9f58cdea9f2f5bede03c558cd58cdea9f3fce02c1b73869da3599a99d"
 	vers        = "5.199"
 )
