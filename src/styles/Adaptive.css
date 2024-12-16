@@ -21,7 +21,9 @@
 
     .news-item__content {
         padding: 20px;
+        width: fit-content;
     }
+
 
     .news-item__title {
         font-size: 18px;
