@@ -2,30 +2,50 @@
 const ApplicationCard = ({notification}) => {
     return (
         <div
-            className={`notification-card ${notification.status === 'approved' ? 'approved' : notification.status === 'pending' ? 'pending' : 'reviewed'}`}
-            style={{
-                backgroundColor: notification.status === 'approved' ? '#f0f8ff' : notification.status === 'pending' ? '#d3d3d3' : '#e0e0e0',
-                padding: '10px',
-                marginBottom: '10px',
-                borderRadius: '8px',
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center'
-            }}
+            className={`notification-card ${
+                notification.status === 'approved'
+                    ? 'approved'
+                    : notification.status === 'pending'
+                        ? 'pending'
+                        : 'reviewed'
+            }`}
         >
-            <div>
-                <div><strong>{notification.date}</strong></div>
-                <div><strong>{notification.name}</strong></div>
-                <div>{notification.title}</div>
-                <div>{notification.document}</div>
+            <div className="application-content">
+                <div className={`application-date ${notification.status}`}>
+                    {notification.date}
+                </div>
+                <div className={`application-name ${notification.status}`}>
+                    {notification.name}
+                </div>
+                <div className={`application-title ${notification.status}`}>
+                    {notification.title}
+                </div>
+                <div className={`application-document ${notification.status}`}>
+                    {notification.document}
+                </div>
             </div>
-            <div style={{display: 'flex', gap: '10px'}}>
-                <button style={{padding: '5px 10px'}}>Ответить</button>
-                <button style={{padding: '5px 10px'}}>
-                    {notification.status === 'approved' ? 'Рассмотрено' : notification.status === 'pending' ? 'Ожидает' : 'Рассмотрено'}
+            <div className="application-btns col-container">
+                <button className={`application-btn ${notification.status}`}>
+                    Ответить
                 </button>
-                <button style={{padding: '5px 10px'}}>📄</button>
+                <button className={`application-btn ${notification.status}`}>
+                    {notification.status === 'approved'
+                        ? 'Рассмотрено'
+                        : notification.status === 'pending'
+                            ? 'Ожидает'
+                            : 'На рассмотрении'}
+                </button>
+                {notification.status === 'approved' ? (
+                    <div className="application-icon">
+                        <img src="/assets/images/save-application.png" alt="save application" />
+                    </div>
+                ) : (
+                    <div className="application-icon">
+                        <img src="/assets/images/save-application-2.png" alt="save application" />
+                    </div>
+                )}
             </div>
+
         </div>
     );
 };
