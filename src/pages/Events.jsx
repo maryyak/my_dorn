@@ -6,6 +6,7 @@ const Events = () => {
     const [eventsList, setEventsList] = useState([]);
     const [date, setDate] = useState("");
     const [time, setTime] = useState("");
+    const [selectedDate, setSelectedDate] = useState("");
     const [expandedEventId, setExpandedEventId] = useState(null);
     const { userData } = useContext(UserContext);
 
@@ -14,20 +15,19 @@ const Events = () => {
             const response = await fetch("/data/eventsData.json");
             const data = await response.json();
             setEventsList(data);
-            localStorage.setItem("eventsList", JSON.stringify(data)); // Сохраняем данные в localStorage
+            localStorage.setItem("eventsList", JSON.stringify(data));
         } catch (error) {
             console.error("Error loading events data:", error);
         }
     };
 
-    // Загружаем данные о мероприятиях при монтировании компонента
     useEffect(() => {
         const storedEvents = localStorage.getItem("eventsList");
 
         if (storedEvents) {
-            setEventsList(JSON.parse(storedEvents)); // Если данные есть в localStorage, используем их
+            setEventsList(JSON.parse(storedEvents));
         } else {
-            fetchEvents(); // Загружаем данные из файла, если их нет в localStorage
+            fetchEvents();
         }
     }, []);
 
@@ -66,12 +66,28 @@ const Events = () => {
     const toggleAccordion = (id) => {
         setExpandedEventId((prevId) => (prevId === id ? null : id));
     };
+    console.log(eventsList)
+    const filteredEvents = selectedDate
+        ? eventsList.filter(
+            (event) => new Date(event.date).toISOString().split("T")[0] === selectedDate
+        )
+        : eventsList;
 
     return (
         <div className="App">
             <div className="container">
+                <div className="events-filter">
+                    <label htmlFor="filter-date">Фильтровать по дате:</label>
+                    <input
+                        type="date"
+                        id="filter-date"
+                        value={selectedDate}
+                        onChange={(e) => setSelectedDate(e.target.value)}
+                    />
+                    <button onClick={() => setSelectedDate("")}>Сбросить фильтр</button>
+                </div>
                 <div className="polls">
-                    {eventsList.map((event) => (
+                    {filteredEvents.map((event) => (
                         <div key={event.id} className="event-card">
                             <div
                                 className="event-card__header"
@@ -88,8 +104,8 @@ const Events = () => {
                                 <small>Создатель: {event.userName}</small>
                             </div>
                             {expandedEventId === event.id && (
-                                <div className="event-card__content" style={{ padding: "10px" }}>
-                                    <EventsList title={event.title} options={event.options} />
+                                <div className="event-card__content" style={{padding: "10px"}}>
+                                    <EventsList title={event.title} options={event.options}/>
                                 </div>
                             )}
                         </div>
@@ -99,7 +115,7 @@ const Events = () => {
                 <div className="events-createVote col-container">
                     <div className="events-createVote__head row-container">
                         <div className="img-container events-createVote__img">
-                            <img src="/assets/images/events-decoration.png" alt="Decoration" />
+                            <img src="/assets/images/events-decoration.png" alt="Decoration"/>
                         </div>
                         <div className="events-createVote__title">Создать новое мероприятие</div>
                     </div>

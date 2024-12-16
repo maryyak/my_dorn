@@ -1122,3 +1122,11 @@ a {
     border: 1px solid #0a2745;
     color: #0a2745;
 }
+
+.events-filter{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
