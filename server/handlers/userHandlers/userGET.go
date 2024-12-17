@@ -1,4 +1,4 @@
-package routes
+package userHandlers
 
 import (
 	"dorn_project/server/database"

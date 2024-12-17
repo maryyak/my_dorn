@@ -1,30 +1,18 @@
 package models
 
-import (
-	"time"
-)
+import "time"
 
-// User represents a user in the system
-//type User struct {
-//	UserID       int       `json:"user_id" db:"userid" gorm:"primary_key;AUTO_INCREMENT"`
-//	Name         string    `json:"name" db:"name"`
-//	Email        string    `json:"email" db:"email"`
-//	PasswordHash string    `json:"-" db:"passwordhash"`
-//	Role         string    `json:"role" db:"role"`
-//	RoomID       int       `json:"room_id" db:"roomid"`
-//	Room         *Room     `json:"room,omitempty" gorm:"foreignKey:RoomID;references:RoomNumber"` // Связь для загрузки данных о комнате
-//	PhoneNumber  string    `json:"phone_number" db:"phonenumber"`
-//	RegisteredAt time.Time `json:"registered_at" db:"registeredat"`
-//}
-
-// User представляет пользователя в системе
 type User struct {
-	UserID       int       `json:"user_id" gorm:"primaryKey;column:userid;autoIncrement"`
-	Name         string    `json:"name" gorm:"column:name;size:100"`
-	Email        string    `json:"email" gorm:"column:email;size:100"`
-	Password     string    `json:"-" gorm:"column:password;size:255"`
-	Role         string    `json:"role" gorm:"column:role;size:20;default:'student'"`
-	RoomID       int       `json:"room_id" gorm:"column:roomid"`
-	PhoneNumber  string    `json:"phone_number" gorm:"column:phonenumber;size:15"`
-	RegisteredAt time.Time `json:"registered_at" gorm:"column:registeredat;default:CURRENT_TIMESTAMP"`
+	UserID       int       `json:"user_id" gorm:"primaryKey;autoIncrement"`
+	Name         string    `json:"name" gorm:"size:100;not null"`
+	Email        string    `json:"email" gorm:"size:100;unique;not null"`
+	PasswordHash string    `json:"-" gorm:"size:255;not null"`
+	Telegram     string    `json:"telegram" gorm:"column:telegram;size:50"`
+	RoleID       int       `json:"role_id" gorm:"not null;index"`
+	Role         Role      `json:"role" gorm:"foreignKey:RoleID;references:RoleID"`
+	RoomID       *int      `json:"room_id,omitempty" gorm:"index"`
+	Room         *Room     `json:"room,omitempty" gorm:"foreignKey:RoomID"`
+	Events       []Event   `json:"events" gorm:"foreignKey:UserID;references:UserID"`
+	PhoneNumber  string    `json:"phone_number" gorm:"size:15"`
+	RegisteredAt time.Time `json:"registered_at" gorm:"autoCreateTime"`
 }
