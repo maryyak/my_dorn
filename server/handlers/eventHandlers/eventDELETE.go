@@ -19,6 +19,12 @@ func DeleteEvent(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	var event models.Event
+	if err := database.DB.First(&event, eventID).Error; err != nil {
+		http.Error(w, "Room not found", http.StatusNotFound)
+		return
+	}
+
 	if err := database.DB.Delete(&models.Event{}, eventID).Error; err != nil {
 		http.Error(w, "Failed to delete event", http.StatusInternalServerError)
 		log.Printf("Error deleting event: %v", err)

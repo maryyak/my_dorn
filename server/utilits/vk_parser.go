@@ -8,6 +8,7 @@ import (
 	"net/http"
 	"os"
 	"path/filepath"
+	"strings"
 	"time"
 )
 
@@ -131,6 +132,22 @@ func unixToString(unixTime int64) string {
 	return t.Format("2006-01-02 15:04:05")
 }
 
+func truncateTextByWords(text string, wordLimit int) string {
+	words := splitWords(text)
+	if len(words) <= wordLimit {
+		return text
+	}
+	return joinWords(words[:wordLimit])
+}
+
+func splitWords(text string) []string {
+	return strings.Fields(text)
+}
+
+func joinWords(words []string) string {
+	return strings.Join(words, " ")
+}
+
 func VkParsing() {
 	//for {
 	url := fmt.Sprintf("%s?owner_id=%s&access_token=%s&count=%d&v=%s", apiURL, domain, accessToken, count, vers)
@@ -151,8 +168,9 @@ func VkParsing() {
 					for _, size := range attachment.Photo.Sizes {
 						if size.Type == "orig" || size.Type == "z" {
 							outputData = append(outputData, OutputPost{
-								URL:  size.URL,
-								Text: post.Text[:301] + "...",
+								URL: size.URL,
+								//Text: post.Text[:301] + "...",
+								Text: truncateTextByWords(post.Text, 25) + "...",
 								Date: unixToString(post.Date),
 								ID:   fmt.Sprintf("https://vk.com/student.dom12.mirea?w=wall-168782205_%d", post.ID),
 							})
@@ -170,10 +188,11 @@ func VkParsing() {
 						}
 					}
 					outputData = append(outputData, OutputPost{
-						URL:  maxImageURL,
-						Text: post.Text[:300] + "...",
+						URL: maxImageURL,
+						//Text: post.Text[:300] + "...",
+						Text: truncateTextByWords(post.Text, 25) + "...",
 						Date: unixToString(post.Date),
-						ID:   fmt.Sprintf("%d", post.ID),
+						ID:   fmt.Sprintf("https://vk.com/student.dom12.mirea?w=wall-168782205_%d", post.ID),
 					})
 				}
 			}

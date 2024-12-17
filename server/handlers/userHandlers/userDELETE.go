@@ -19,6 +19,12 @@ func DeleteUser(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	var user models.User
+	if err := database.DB.First(&user, userID).Error; err != nil {
+		http.Error(w, "User not found", http.StatusNotFound)
+		return
+	}
+
 	if err := database.DB.Delete(&models.User{}, userID).Error; err != nil {
 		http.Error(w, "Failed to delete user", http.StatusInternalServerError)
 		log.Printf("Error deleting user: %v", err)

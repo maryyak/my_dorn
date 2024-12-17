@@ -7,7 +7,6 @@ type User struct {
 	Name         string    `json:"name" gorm:"size:100;not null"`
 	Email        string    `json:"email" gorm:"size:100;unique;not null"`
 	PasswordHash string    `json:"-" gorm:"size:255;not null"`
-	Telegram     string    `json:"telegram" gorm:"column:telegram;size:50"`
 	RoleID       int       `json:"role_id" gorm:"not null;index"`
 	Role         Role      `json:"role" gorm:"foreignKey:RoleID;references:RoleID"`
 	RoomID       *int      `json:"room_id,omitempty" gorm:"index"`

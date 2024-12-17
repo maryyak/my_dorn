@@ -19,6 +19,12 @@ func DeleteRoom(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	var room models.Room
+	if err := database.DB.First(&room, roomID).Error; err != nil {
+		http.Error(w, "Room not found", http.StatusNotFound)
+		return
+	}
+
 	if err := database.DB.Delete(&models.Room{}, roomID).Error; err != nil {
 		http.Error(w, "Failed to delete room", http.StatusInternalServerError)
 		log.Printf("Error deleting room: %v", err)
