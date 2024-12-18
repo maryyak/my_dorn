@@ -1,12 +1,13 @@
-import React, {useContext, useEffect, useState} from "react";
+import React, { useContext, useEffect, useState } from "react";
 import EventsList from "../components/EventsList";
-import {UserContext} from "../components/UserProvider";
+import { UserContext } from "../components/UserProvider";
 
 const Events = () => {
     const [eventsList, setEventsList] = useState([]);
+    const [filteredEvents, setFilteredEvents] = useState([]); // Список для отображаемых событий
     const [date, setDate] = useState("");
     const [time, setTime] = useState("");
-    const [selectedDate, setSelectedDate] = useState("");
+    const [filterDate, setFilterDate] = useState(""); // Состояние для фильтрации
     const [expandedEventId, setExpandedEventId] = useState(null);
     const { userData } = useContext(UserContext);
 
@@ -15,6 +16,7 @@ const Events = () => {
             const response = await fetch("/data/eventsData.json");
             const data = await response.json();
             setEventsList(data);
+            setFilteredEvents(data); // Изначально показываем все события
             localStorage.setItem("eventsList", JSON.stringify(data));
         } catch (error) {
             console.error("Error loading events data:", error);
@@ -25,7 +27,9 @@ const Events = () => {
         const storedEvents = localStorage.getItem("eventsList");
 
         if (storedEvents) {
-            setEventsList(JSON.parse(storedEvents));
+            const parsedEvents = JSON.parse(storedEvents);
+            setEventsList(parsedEvents);
+            setFilteredEvents(parsedEvents);
         } else {
             fetchEvents();
         }
@@ -52,11 +56,12 @@ const Events = () => {
                 title: `${day}.${month}.${year} в ${time}`,
                 options: [],
                 date: newDate.toISOString(),
-                userName: `${userData.firstName} ${userData.lastName}`
+                userName: `${userData.firstName} ${userData.lastName}`,
             };
 
             const updatedEvents = [...eventsList, newEvent];
             setEventsList(updatedEvents);
+            setFilteredEvents(updatedEvents);
             localStorage.setItem("eventsList", JSON.stringify(updatedEvents));
             setTime("");
             setDate("");
@@ -66,27 +71,47 @@ const Events = () => {
     const toggleAccordion = (id) => {
         setExpandedEventId((prevId) => (prevId === id ? null : id));
     };
-    console.log(eventsList)
-    const filteredEvents = selectedDate
-        ? eventsList.filter(
-            (event) => new Date(event.date).toISOString().split("T")[0] === selectedDate
-        )
-        : eventsList;
+
+    const handleFilterByDate = () => {
+        if (filterDate) {
+            const filtered = eventsList.filter((event) => {
+                try {
+                    const eventDate = new Date(event.date).toISOString().split("T")[0];
+                    return eventDate === filterDate;
+                } catch (error) {
+                    return false;
+                }
+            });
+            setFilteredEvents(filtered);
+        }
+    };
+
+    const handleShowAllEvents = () => {
+        setFilteredEvents(eventsList);
+    };
 
     return (
         <div className="App">
             <div className="container">
-                <div className="events-filter">
-                    <label htmlFor="filter-date">Фильтровать по дате:</label>
-                    <input
-                        type="date"
-                        id="filter-date"
-                        value={selectedDate}
-                        onChange={(e) => setSelectedDate(e.target.value)}
-                    />
-                    <button onClick={() => setSelectedDate("")}>Сбросить фильтр</button>
-                </div>
                 <div className="polls">
+                    <div className="filter-section ">
+                        <div className="filter-row row-container">
+                            <div className="filter-date">Фильтровать по дате:</div>
+                            <input
+                                type="date"
+                                id="filter-date"
+                                value={filterDate}
+                                onChange={(e) => setFilterDate(e.target.value)}
+                            />
+                            <button onClick={handleFilterByDate}>
+                                Показать мероприятия
+                            </button>
+                        </div>
+
+                        <button onClick={handleShowAllEvents}>
+                            Показать все мероприятия
+                        </button>
+                    </div>
                     {filteredEvents.map((event) => (
                         <div key={event.id} className="event-card">
                             <div
@@ -104,8 +129,14 @@ const Events = () => {
                                 <small>Создатель: {event.userName}</small>
                             </div>
                             {expandedEventId === event.id && (
-                                <div className="event-card__content" style={{padding: "10px"}}>
-                                    <EventsList title={event.title} options={event.options}/>
+                                <div
+                                    className="event-card__content"
+                                    style={{ padding: "10px" }}
+                                >
+                                    <EventsList
+                                        title={event.title}
+                                        options={event.options}
+                                    />
                                 </div>
                             )}
                         </div>
@@ -115,13 +146,23 @@ const Events = () => {
                 <div className="events-createVote col-container">
                     <div className="events-createVote__head row-container">
                         <div className="img-container events-createVote__img">
-                            <img src="/assets/images/events-decoration.png" alt="Decoration"/>
+                            <img
+                                src="/assets/images/events-decoration.png"
+                                alt="Decoration"
+                            />
                         </div>
-                        <div className="events-createVote__title">Создать новое мероприятие</div>
+                        <div className="events-createVote__title">
+                            Создать новое мероприятие
+                        </div>
                     </div>
-                    <form className="events-createVote__form col-container" onSubmit={handleAddOption}>
+                    <form
+                        className="events-createVote__form col-container"
+                        onSubmit={handleAddOption}
+                    >
                         <div className="events-createVote__field col-container">
-                            <label className="events-createVote__label">Выберите дату проведения</label>
+                            <label className="events-createVote__label">
+                                Выберите дату проведения
+                            </label>
                             <input
                                 id="date"
                                 type="date"
@@ -132,7 +173,9 @@ const Events = () => {
                             />
                         </div>
                         <div className="events-createVote__field col-container">
-                            <label className="events-createVote__label">Выберите время проведения</label>
+                            <label className="events-createVote__label">
+                                Выберите время проведения
+                            </label>
                             <input
                                 id="time"
                                 type="time"
